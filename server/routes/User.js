@@ -120,9 +120,10 @@ router.get("/refresh", async (req, res) => {
     if (!refrechTokenVerify) {
       res.status(400).send("Expired Refresh Token");
     }
-    const checkBlacklist = await User.findOne({
+    const checkBlacklist = await Blacklist.findOne({
       token: findUser?.refreshToken,
     });
+    console.log(checkBlacklist, "checkBlacklist");
     if (checkBlacklist) res.status(400).send("Refresh Token is Blacklisted");
 
     // Generate access token

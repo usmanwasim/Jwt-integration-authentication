@@ -81,7 +81,7 @@ export default function ContextApi(props) {
           console.log(error.response.data);
         }
       } catch (err) {
-        console.log(err, "error for refresh token route hit");
+        console.log(err?.response, "error for refresh token route hit");
       }
     }
   };
